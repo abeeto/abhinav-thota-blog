@@ -146,6 +146,7 @@
     /* semantic layer */
     :root {
         --text-main: var(--clr-gray-800);
+        --text-main-muted: var(--clr-gray-600);
         --text-high-contrast: var(--clr-white-100);
         --text-brand: var(--clr-orange-500);
         --text-brand-light: var(--clr-orange-400);
@@ -175,6 +176,8 @@
         --border-radius-3: 0.75rem;
         @media (prefers-color-scheme: dark) {
             --text-main: var(--clr-blue-100);
+            --text-main-muted: var(--clr-blue-200);
+
             --text-high-contrast: var(--clr-gray-800);
             --background-extra-light: var(--clr-navy-100);
             --background-light: var(--clr-navy-200);
@@ -201,4 +204,51 @@
         font-size: var(--font-size-heading-regular);
         color: var(--text-main);
     }
+
+    .navigation-menu {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      max-width: 850px;
+      margin-inline: auto;
+
+
+      @media (width < 855px) {
+        flex-direction: column;
+        ul[data-buttons="true"] {
+          gap: 0.5rem;
+          a {
+            font-size: var(--font-size-md);
+            border-bottom: 2px dashed var(--background-accent-main);
+          }
+        }
+      }
+    }
+
+    ul[data-buttons="true"] {
+      display: flex;
+      gap: 1rem;
+    }
+    ul[data-buttons="true"] a, .navigation-menu-home {
+      text-decoration: none;
+      color: var(--text-main-muted);
+      font-family: var(--ff-heading);
+      font-size: var(--font-size-heading-sm);
+      
+      &:hover {
+        cursor: pointer;
+        color: var(--background-accent-main);
+      }
+    }
+    .navigation-menu-home  {
+      font-size: var(--font-size-md);
+      font-weight: 200;
+      align-self: center;
+      @media (width < 855px) {
+        align-self: auto;
+      }
+    }
+  }
+  @layer utilities {
+
 }
