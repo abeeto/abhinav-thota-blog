@@ -11,8 +11,6 @@ features:
       description: Building modern, performant web applications with the latest technologies
     - name: Writing
       description: Sharing insights, tutorials, and thoughts on software engineering
-    - name: Open Source
-      description: Contributing to the developer community through open source projects
 showRecentPosts: true
 isHomePage: true
 ---

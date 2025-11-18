@@ -248,6 +248,17 @@
       align-self: auto;
     }
   }
+
+  a {
+    text-decoration: underline;
+    color: var(--text-brand-light);
+    font-family: var(--ff-body);
+
+    &:hover {
+      cursor: pointer;
+      color: var(--text-brand);
+    }
+  }
 }
 
 @layer layout {
@@ -260,14 +271,14 @@
     --flow-spacer: 0.5em;
   }
   .section {
-    --padding: 3.5rem;
-    --margin: 1rem;
+    --padding: 1rem;
     padding-block: var(--padding);
-    margin-inline: var(--margin);
     
     &[data-padding="compact"] {
       --padding : 1.5rem;
-      --margin: 0;
+    }
+    @media (width < 880px) {
+      --padding: 1.8rem;
     }
   }
   
@@ -287,6 +298,8 @@
       --max-width: 950px;
     }
   }
+
+
 }
 
 @layer components {
@@ -294,6 +307,88 @@
     background: linear-gradient(to bottom, var(--background-dark), var(--background-extra-dark));
     padding: 1.5rem 1rem;
     font-family: "Roboto Mono", sans-serif;
+  }
+
+  .card-content-head {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-family: "Roboto Slab", serif;
+    align-items: flex-end;
+    a {
+      font-size: var(--font-size-md);
+      font-family: "Roboto Slab", serif;
+    }
+  }
+
+  .dynamic-content-card {
+    --card-image-width: 380px;
+    --card-image-height: 100px;
+    --card-gap: 1.5rem;
+    --card-padding: 0.5rem;
+    --card-border-radius: var(--border-radius-2);
+
+    display: flex;
+    flex-direction: row;
+    gap: var(--card-gap);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+
+    /* Prevent layout shift on expansion */
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    /* Optional: Add subtle border */
+    border: 1px solid var(--background-dark);
+
+    /* Wrap on smaller screens */
+    flex-wrap: wrap;
+
+    &:hover {
+      /* Example expansion effect - doesn't shift other elements */
+      transform: scale(1.02);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+
+    .dynamic-content-card-text {
+      /* Fixed content area that doesn't shrink */
+      flex: 1 1 5rem;
+      min-width: 250px;
+      padding: 0.5rem;
+
+      h3 {
+        font-size: var(--font-size-lg);
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        color: var(--text-main-muted);
+        line-height: 1.6;
+      }
+    }
+
+    /* Image container - fixed size, doesn't shrink */
+    img {
+      flex: 0 0 var(--card-image-width);
+      width: var(--card-image-width);
+      height: var(--card-image-height);
+      object-fit: cover;
+      border-radius: var(--card-border-radius);
+      margin-block: 0;
+
+      /* Placeholder gradient */
+      background: linear-gradient(to right, var(--background-accent-dark), var(--background-accent-light));
+    }
+    /* Responsive: Stack vertically on narrow screens */
+    @media (width < 680px) {
+      flex-direction: column;
+
+      img {
+        width: 100%;
+        flex: 0 0 auto;
+      }
+    }
   }
 }
 
