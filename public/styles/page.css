@@ -322,8 +322,8 @@
   }
 
   .dynamic-content-card {
-    --card-image-width: 380px;
-    --card-image-height: 100px;
+    --card-image-width: 100%;
+    --card-image-height: 500px;
     --card-gap: 1.5rem;
     --card-padding: 0.5rem;
     --card-border-radius: var(--border-radius-2);
