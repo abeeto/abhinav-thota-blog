@@ -34,27 +34,6 @@ layout: base.njk
 </section>
 {% endif %}
 
-{# Recent posts section #}
-{% if showRecentPosts %}
-<section class="section">
-  <div class="wrapper flow">
-    <div class="card-content-head">
-      <h2>Recent Posts</h2>
-      <a href="">(see all posts)</a>
-    </div>
-    <ul>
-    {% for post in collections.posts | reverse %}
-      {% if loop.index <= 3 %}
-        <li>
-          <a href="{{ post.url }}">{{ post.data.title }}</a>
-        </li>
-      {% endif %}
-    {% endfor %}
-    </ul>
-  </div>
-</section>
-{% endif %}
-
 {# Additional markdown content from the .md file #}
 {% if content %}
 <section class="additional-content">
