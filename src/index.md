@@ -2,7 +2,7 @@
 title: Abhinav Thota
 layout: "home.njk"
 hero:
-  title: Hi, I'm Abhinav Thota
+  title: Hi, I'm Abhinav Thota 👋
   description: I am a developer based in Stockport, UK. I love learning and sharing any thing related to software engineering!
 features:
   title: Featured Projects

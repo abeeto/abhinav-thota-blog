@@ -327,7 +327,7 @@
     --card-gap: 1.5rem;
     --card-padding: 0.5rem;
     --card-border-radius: var(--border-radius-2);
-
+    background-color: var(--background-light);
     display: flex;
     flex-direction: row;
     gap: var(--card-gap);
