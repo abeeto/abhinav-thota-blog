@@ -280,6 +280,9 @@
     @media (width < 880px) {
       --padding: 1.8rem;
     }
+    .wrapper {
+      min-height: 18ch;
+    }
   }
   
   .wrapper {
@@ -393,5 +396,9 @@
 }
 
 @layer utilities {
-
+  .cursor {
+    color: var(--background-accent-light);
+    font-weight: 300;
+    margin-left: 2px;
+  }
 }
