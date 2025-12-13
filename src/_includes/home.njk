@@ -7,7 +7,7 @@ layout: base.njk
   <section class="section" data-padding="compact">
     <div class="wrapper flow hero" data-flow-margin="compact">
       <h1>{{ hero.title }}</h1>
-      <p>{{ hero.description }}</p>
+      <p>{{ hero.description }} <span id="typing-text" data-hobbies='{{ hero.passions.items | dump | safe }}'></span><span class="cursor">|</span></p>
     </div>
   </section>
 </main>
