@@ -44,8 +44,10 @@
           <h3>Resume Editor</h3>
           <p>A live and dynamic resume builder application. Auto-saves any changes to a PostgresDB. Supports PDF export. Built primarily using Django REST Framework and React/Next.js.</p>
         </div>
-        
-        <img src="/assets/ResumeBuilder.gif" alt="Resume Editor preview">
+        <div class="gif-wrapper">
+          <div class="gif-placeholder" data-gif-loaded="false"></div>
+          <img src="/assets/ResumeBuilder.gif" alt="Resume Editor preview" data-gif-loaded="false">
+        </div>
     </div>
     
     <div class="dynamic-content-card">
@@ -54,9 +56,11 @@
 </h3>
           <p>A recording and submission platform that supports facial blurring for anonymity. Built using AWS services (DynamoDB, S3, Lambda, Amplify), OpenCV library and React.</p>
         </div>
-        
-        <img src="/assets/CAPSTONE_BLUR.gif" alt="Blur: Final Year Capstone Project
- preview">
+        <div class="gif-wrapper">
+          <div class="gif-placeholder" data-gif-loaded="false"></div>
+          <img src="/assets/CAPSTONE_BLUR.gif" alt="Blur: Final Year Capstone Project
+ preview" data-gif-loaded="false">
+        </div>
     </div>
     
   </div>
@@ -68,5 +72,6 @@
 
         </div>
     </main>
+    <script src="/lazyloadGif.js"></script>
 </body>
 </html>
