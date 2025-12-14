@@ -7,27 +7,29 @@ layout: base.njk
   <section class="section" data-padding="compact">
     <div class="wrapper flow hero" data-flow-margin="compact">
       <h1>{{ hero.title }}</h1>
-      <p>{{ hero.description }}</p>
+      <p>{{ hero.description }} <span id="typing-text" data-hobbies='{{ hero.passions.items | dump | safe }}'></span><span class="cursor">|</span></p>
     </div>
   </section>
 </main>
 
 {# Features/Highlights section #}
-{% if features %}
+{% if projects %}
 <section class="section">
   <div class="wrapper flow">
     <div class="card-content-head">
-      <h2>{{ features.title }}</h2>
+      <h2>{{ projects.title }}</h2>
       <a href="">(see all projects)</a>
     </div>
-    {% for feature in features.items %}
+    {% for item in projects.items %}
     <div class="dynamic-content-card">
         <div class="dynamic-content-card-text flow" data-flow-margin="compact">
-          <h3>{{ feature.name }}</h3>
-          <p>{{ feature.description }}</p>
+          <h3>{{ item.name }}</h3>
+          <p>{{ item.description }}</p>
         </div>
-        {# Just use GIF or image directly - no JS needed! #}
-        <img src="{{ feature.image }}" alt="{{ feature.name }} preview">
+        <div class="gif-wrapper">
+          <div class="gif-placeholder" data-gif-loaded="false"></div>
+          <img src="{{ item.lazyLoadImg }}" alt="{{ item.name }} preview" data-gif-loaded="false">
+        </div>
     </div>
     {% endfor %}
   </div>
