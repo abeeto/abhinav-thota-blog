@@ -86,106 +86,106 @@
 @layer global_vars {
     /* primitives */
 
-    :root {
-    /* Neutrals - Light Theme */
-        --clr-white-100: hsla(35, 30%, 98%, 1);
-        --clr-white-200: hsla(35, 25%, 96%, 1);
-        --clr-white-300: hsla(35, 20%, 92%, 1);
-        --clr-white-400: hsla(35, 15%, 85%, 1);
-        --clr-white-500: hsla(35, 12%, 75%, 1);
-        
-        --clr-gray-400: hsla(35, 8%, 58%, 1);
-        --clr-gray-500: hsla(35, 8%, 40%, 1);
-        --clr-gray-600: hsla(35, 8%, 28%, 1);
-        --clr-gray-700: hsla(30, 10%, 18%, 1);
-        --clr-gray-800: hsla(30, 12%, 13%, 1);
-        
-        /* Neutrals - Dark Theme */
-        --clr-blue-100: hsla(210, 65%, 95%, 1);
-        --clr-blue-200: hsla(210, 60%, 90%, 1);
-        --clr-blue-300: hsla(215, 25%, 73%, 1);
-        --clr-blue-400: hsla(215, 20%, 57%, 1);
-        --clr-blue-500: hsla(215, 25%, 40%, 1);
-        
-        --clr-navy-100: hsla(210, 35%, 26%, 1);
-        --clr-navy-200: hsla(212, 40%, 21%, 1);
-        --clr-navy-300: hsla(214, 43%, 19%, 1);
-        --clr-navy-400: hsla(214, 45%, 15%, 1);
-        --clr-navy-500: hsla(214, 50%, 12%, 1);
-        
-        /* Accents */
-        --clr-orange-300: hsla(25, 85%, 67%, 1);
-        --clr-orange-400: hsla(25, 78%, 62%, 1);
-        --clr-orange-500: hsla(25, 65%, 54%, 1);
-        
-        /* font family */
-        --ff-body: "Roboto Flex", sans-serif;
-        --ff-heading: "Roboto Slab", serif;
-        --ff-caption: "Roboto Condensed", sans-serif;
-        --ff-subheading: "Roboto Condensed", sans-serif;
-        /* font sizes */
-        --fs-300: 0.875rem;
-        --fs-400: 1rem;
-        --fs-500: 1.125rem;
-        --fs-600: 1.25rem;
-        --fs-700: 1.5rem;
-        --fs-800: 2rem;
-        --fs-900: 3.75rem;
-        --fs-1000: 3.75rem;
-        @media (width > 760px) {
-            --fs-300: 0.875rem;
-            --fs-400: 1rem;
-            --fs-500: 1.25rem;
-            --fs-600: 1.5rem;
-            --fs-700: 2rem;
-            --fs-800: 3rem;
-            --fs-900: 5rem;
-            --fs-1000: 7.5rem;
-        }
-    }
-    /* semantic layer */
-    :root {
-        --text-main: var(--clr-gray-800);
-        --text-main-muted: var(--clr-gray-600);
-        --text-high-contrast: var(--clr-white-100);
-        --text-brand: var(--clr-orange-500);
-        --text-brand-light: var(--clr-orange-400);
+  :root {
+  /* Neutrals - Light Theme */
+      --clr-white-100: hsla(35, 30%, 98%, 1);
+      --clr-white-200: hsla(35, 25%, 96%, 1);
+      --clr-white-300: hsla(35, 20%, 92%, 1);
+      --clr-white-400: hsla(35, 15%, 85%, 1);
+      --clr-white-500: hsla(35, 12%, 75%, 1);
+      
+      --clr-gray-400: hsla(35, 8%, 58%, 1);
+      --clr-gray-500: hsla(35, 8%, 40%, 1);
+      --clr-gray-600: hsla(35, 8%, 28%, 1);
+      --clr-gray-700: hsla(30, 10%, 18%, 1);
+      --clr-gray-800: hsla(30, 12%, 13%, 1);
+      
+      /* Neutrals - Dark Theme */
+      --clr-blue-100: hsla(210, 65%, 95%, 1);
+      --clr-blue-200: hsla(210, 60%, 90%, 1);
+      --clr-blue-300: hsla(215, 25%, 73%, 1);
+      --clr-blue-400: hsla(215, 20%, 57%, 1);
+      --clr-blue-500: hsla(215, 25%, 40%, 1);
+      
+      --clr-navy-100: hsla(210, 35%, 26%, 1);
+      --clr-navy-200: hsla(212, 40%, 21%, 1);
+      --clr-navy-300: hsla(214, 43%, 19%, 1);
+      --clr-navy-400: hsla(214, 45%, 15%, 1);
+      --clr-navy-500: hsla(214, 50%, 12%, 1);
+      
+      /* Accents */
+      --clr-orange-300: hsla(25, 85%, 67%, 1);
+      --clr-orange-400: hsla(25, 78%, 62%, 1);
+      --clr-orange-500: hsla(25, 65%, 54%, 1);
+      
+      /* font family */
+      --ff-body: "Roboto Flex", sans-serif;
+      --ff-heading: "Roboto Slab", serif;
+      --ff-caption: "Roboto Condensed", sans-serif;
+      --ff-subheading: "Roboto Condensed", sans-serif;
+      /* font sizes */
+      --fs-300: 0.875rem;
+      --fs-400: 1rem;
+      --fs-500: 1.125rem;
+      --fs-600: 1.25rem;
+      --fs-700: 1.5rem;
+      --fs-800: 2rem;
+      --fs-900: 3.75rem;
+      --fs-1000: 3.75rem;
+      @media (width > 760px) {
+          --fs-300: 0.875rem;
+          --fs-400: 1rem;
+          --fs-500: 1.25rem;
+          --fs-600: 1.5rem;
+          --fs-700: 2rem;
+          --fs-800: 3rem;
+          --fs-900: 5rem;
+          --fs-1000: 7.5rem;
+      }
+  }
+  /* semantic layer */
+  :root {
+    --text-main: var(--clr-gray-800);
+    --text-main-muted: var(--clr-gray-600);
+    --text-high-contrast: var(--clr-white-100);
+    --text-brand: var(--clr-orange-500);
+    --text-brand-light: var(--clr-orange-400);
 
-        --background-accent-light: var(--clr-orange-300);
-        --background-accent-main: var(--clr-orange-400);
-        --background-accent-dark: var(--clr-orange-500);
+    --background-accent-light: var(--clr-orange-300);
+    --background-accent-main: var(--clr-orange-400);
+    --background-accent-dark: var(--clr-orange-500);
 
-        --background-extra-light: var(--clr-white-100);
-        --background-light: var(--clr-white-200);
-        --background-main: var(--clr-white-300);
-        --background-dark: var(--clr-white-400);
-        --background-extra-dark: var(--clr-white-500);
+    --background-extra-light: var(--clr-white-100);
+    --background-light: var(--clr-white-200);
+    --background-main: var(--clr-white-300);
+    --background-dark: var(--clr-white-400);
+    --background-extra-dark: var(--clr-white-500);
 
-        --font-size-heading-sm: var(--fs-700);
-        --font-size-heading-regular: var(--fs-800);
-        --font-size-heading-lg: var(--fs-900);
-        --font-size-heading-xl: var(--fs-1000);
+    --font-size-heading-sm: var(--fs-700);
+    --font-size-heading-regular: var(--fs-800);
+    --font-size-heading-lg: var(--fs-900);
+    --font-size-heading-xl: var(--fs-1000);
 
-        --font-size-sm: var(--fs-300);
-        --font-size-regular: var(--fs-400);
-        --font-size-md: var(--fs-500);
-        --font-size-lg: var(--fs-600);
+    --font-size-sm: var(--fs-300);
+    --font-size-regular: var(--fs-400);
+    --font-size-md: var(--fs-500);
+    --font-size-lg: var(--fs-600);
 
-        --border-radius-1: 0.25rem;
-        --border-radius-2: 0.5rem;
-        --border-radius-3: 0.75rem;
-        @media (prefers-color-scheme: dark) {
-            --text-main: var(--clr-blue-100);
-            --text-main-muted: var(--clr-blue-200);
+    --border-radius-1: 0.25rem;
+    --border-radius-2: 0.5rem;
+    --border-radius-3: 0.75rem;
+  }   
+  html[data-theme="dark"] {
+    --text-main: var(--clr-blue-100);
+    --text-main-muted: var(--clr-blue-200);
 
-            --text-high-contrast: var(--clr-gray-800);
-            --background-extra-light: var(--clr-navy-100);
-            --background-light: var(--clr-navy-200);
-            --background-main: var(--clr-navy-300);
-            --background-dark: var(--clr-navy-400);
-            --background-extra-dark: var(--clr-navy-500);
-        }
-    }   
+    --text-high-contrast: var(--clr-gray-800);
+    --background-extra-light: var(--clr-navy-100);
+    --background-light: var(--clr-navy-200);
+    --background-main: var(--clr-navy-300);
+    --background-dark: var(--clr-navy-400);
+    --background-extra-dark: var(--clr-navy-500);
+  }
 }
 @layer base {
   html {
