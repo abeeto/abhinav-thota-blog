@@ -25,6 +25,7 @@ projects:
       lazyLoadImg: "/assets/CAPSTONE_BLUR.gif"
 
 countries:
+  title: My journey so far
   items:
     - context: I was born in...
       image: "/assets/1-country-map.png"
