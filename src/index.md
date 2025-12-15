@@ -20,6 +20,25 @@ projects:
       description: A recording and submission platform that supports facial blurring for anonymity. Built using AWS services (DynamoDB, S3, Lambda, Amplify), OpenCV library and React.
       lazyLoadImg: "/assets/CAPSTONE_BLUR.gif"
 
+countries:
+  items:
+    - context: I was born in...
+      image: "/assets/1-country-map.png"
+      places:
+        - name: 🇮🇳 Hyderabad, India
+    - context: I grew up in...
+      image: "/assets/2-country-map.png"
+      places:
+        - name: 🇸🇬 Singapore
+        - name: 🇧🇳 Brunei
+    - context: I studied Computer Science in...
+      image: "/assets/3-country-map.png"
+      places:
+        - name: 🇨🇦 Canada
+    - context: and I now live in...
+      image: "/assets/4-country-map.png"
+      places:
+        - name: 🇬🇧 United Kingdom
 showRecentPosts: true
 isHomePage: true
 ---
