@@ -26,8 +26,9 @@ layout: base.njk
 </main>
 {% if countries %}
 <section class="section" data-padding="compact">
-  <div class="country-cards-section">
+  <div class="country-cards-section wrapper" data-width="full">
     <div class="country-cards-wrapper">
+      <h2>{{ countries.title }}</h2>
       {% for country in countries.items %}
       <div class="country-card wrapper flow" data-width="wide">
         <img src="{{ country.image }}" alt="map" loading="lazy">

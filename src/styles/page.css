@@ -310,12 +310,17 @@
     &[data-width="wide"] {
       --max-width: 1150px;
     }
-  }
 
+    &[data-width="full"] {
+      --max-width: 100%;
+    }
+  }
   .country-cards-section {
+    background-color: var(--background-extra-light);
+  }
+  .country-cards-wrapper {
     --cards-gap: 1rem;
     --cards-padding: 1.5rem;
-    background-color: var(--background-extra-light);
     display: flex;
   }
 }
@@ -418,6 +423,11 @@
       --cards-gap: 1.5rem;
       --cards-padding: 3rem;
       max-width: 85%;
+    }
+
+    h2 {
+      width: 100%;
+      text-align: center;
     }
   }
 
