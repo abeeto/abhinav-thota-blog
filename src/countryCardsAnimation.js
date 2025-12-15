@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   gsap.registerPlugin(ScrollTrigger);
 
   const countryCards = document.querySelectorAll('.country-card');
+  const countrySection = document.querySelector(".country-cards-section");
 
   if (countryCards.length === 0) return;
 
@@ -16,9 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Create timeline for each card with ScrollTrigger
     const timeline = gsap.timeline({
       scrollTrigger: {
-        trigger: card,
-        start: "bottom 90%", // Animation starts when card top hits 80% of viewport
-        toggleActions: "play none none none", // Only play once
+        trigger: countrySection,
+        start: "top 40%", // Animation starts when card top hits 80% of viewport
+        toggleActions: "play", // Only play once
       },
       delay: index * 1.12 // Reduced stagger for scroll activation
     });
