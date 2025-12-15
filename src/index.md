@@ -2,13 +2,17 @@
 title: Abhinav Thota
 layout: "home.njk"
 hero:
-  title: Hi, I'm Abhinav Thota 👋
-  description: I am a developer based in Stockport, UK. Presently, I am 
+  title: Hello 👋
+  description: > 
+    I'm Abhinav Thota, a software engineer. I want to build great things
+    and share what I learn along the way. 
   passions: 
+    title: >
+      Currently I am:
     items:
-      - name: honing my skills in Java & TypeScript
-      - name: leveraging the cloud (AWS)
-      - name: learning about event-driven architectures
+      - name: strengthening my skills in Java and TypeScript
+      - name: studying for AWS Solutions Architect Cert
+      - name: diving deep into RESTful API design & event driven architectures
 projects:
   title: Featured Projects
   items:

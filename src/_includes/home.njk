@@ -5,14 +5,27 @@ layout: base.njk
 {# Hero section - uses data from front matter #}
 <main id="#main">
   <section class="section" data-padding="compact">
-    <div class="wrapper flow hero" data-flow-margin="compact">
-      <h1>{{ hero.title }}</h1>
-      <p>{{ hero.description }} <span id="typing-text" data-hobbies='{{ hero.passions.items | dump | safe }}'></span><span class="cursor">|</span></p>
+    <div class="wrapper hero">
+      <div class="hero-content flow" data-flow-margin="compact">
+        <h1>{{ hero.title }}</h1>
+        <p>{{ hero.description }}</p>
+        <div class="passions-container">
+          <h3>{{ hero.passions.title }}</h3>
+          <ul class="passions-list">
+            {% for passion in hero.passions.items %}
+            <li>{{ passion.name }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="hero-profile-picture">
+        <img src="/assets/ProfilePicture.jpg" alt="Abhinav Thota profile picture">
+      </div>
     </div>
   </section>
 </main>
 {% if countries %}
-<section class="section" data-padding="wide">
+<section class="section" data-padding="compact">
   <div class="country-cards-section">
     <div class="country-cards-wrapper">
       {% for country in countries.items %}
