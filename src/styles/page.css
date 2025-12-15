@@ -88,8 +88,8 @@
 
   :root {
   /* Neutrals - Light Theme */
-      --clr-white-100: hsla(35, 30%, 98%, 1);
-      --clr-white-200: hsla(35, 25%, 96%, 1);
+      --clr-white-100: rgb(245, 243, 237);
+      --clr-white-200: rgb(237, 233, 227);
       --clr-white-300: hsla(35, 20%, 92%, 1);
       --clr-white-400: hsla(35, 15%, 85%, 1);
       --clr-white-500: hsla(35, 12%, 75%, 1);
@@ -160,6 +160,7 @@
     --background-main: var(--clr-white-300);
     --background-dark: var(--clr-white-400);
     --background-extra-dark: var(--clr-white-500);
+    --background-dark-transparent: hsla(35, 15%, 85%, 0.7);
 
     --font-size-heading-sm: var(--fs-700);
     --font-size-heading-regular: var(--fs-800);
@@ -185,6 +186,7 @@
     --background-main: var(--clr-navy-300);
     --background-dark: var(--clr-navy-400);
     --background-extra-dark: var(--clr-navy-500);
+    --background-dark-transparent: hsla(214, 45%, 15%, 0.7);
   }
 }
 @layer base {
@@ -277,6 +279,9 @@
     &[data-padding="compact"] {
       --padding : 1.5rem;
     }
+    &[data-padding="wide"] {
+      --padding : 2.5rem;
+    }
     @media (width < 880px) {
       --padding: 1.8rem;
     }
@@ -298,11 +303,16 @@
     }
 
     &[data-width="wide"] {
-      --max-width: 950px;
+      --max-width: 1150px;
     }
   }
 
-
+  .country-cards-section {
+    --cards-gap: 1rem;
+    --cards-padding: 2rem;
+    background-color: var(--background-extra-light);
+    display: flex;
+  }
 }
 
 @layer components {
@@ -311,7 +321,95 @@
     padding: 1.5rem 1rem;
     font-family: "Roboto Mono", sans-serif;
   }
+  .country-cards-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    align-self: center;
+    gap: var(--cards-gap);
+    flex-wrap: wrap;
+    padding-block: var(--cards-padding);
+    margin-inline: auto;
+    @media (width > 760px) {
+      --cards-gap: 1.5rem;
+      --cards-padding: 3rem;
+      max-width: 85%;
+    }
+  }
 
+  .country-card {
+    position: relative;
+    --card-width: 16rem;
+    --card-height: 20rem;
+    --card-padding: 0rem;
+    flex: 0 0 var(--card-width);
+    min-height: var(--card-height);
+    padding: var(--card-padding);
+    background-color: var(--background-light);
+    border-radius: var(--border-radius-3);
+
+    @media (width > 760px) {
+      --card-width: 18.75rem;
+      --card-height: 21.875rem;
+      --card-padding: 0;
+    }
+
+    @media (width < 520px) {
+      --card-width: 85%;
+      --card-height: 18rem;
+    }
+
+    .country-card-text {
+      --font-size-sm: 1.2rem;
+      font-size: var(--font-size-sm);
+      color: var(--text-main-muted);
+      position: absolute;
+      text-wrap: pretty;
+      padding-inline: 1ch;
+      background-color: var(--background-dark-transparent);
+      border-radius: var(--border-radius-1);
+      backdrop-filter: blur(4px);
+    }
+
+    .country-card-text[data-country-name="🇮🇳 Hyderabad, India"] {
+      top: 120px;
+      right: 10px;
+    }
+
+    .country-card-text[data-country-name="🇧🇳 Brunei"] {
+      bottom: 10rem;
+      right: 2rem;
+    }
+
+    .country-card-text[data-country-name="🇸🇬 Singapore"] {
+      bottom: 8rem;
+      left: 1rem;
+    }
+
+    .country-card-text[data-country-name="🇨🇦 Canada"] {
+      bottom: 8rem;
+      left: 4rem;
+    }
+
+    .country-card-text[data-country-name="🇬🇧 United Kingdom"] {
+      top: 80px;
+      right: 10px;
+    }
+
+    .country-card-context {
+      position: absolute;
+      bottom: 1rem;
+      width: fit-content;
+      margin-inline: auto;
+      left: 0;
+      right: 0;
+      font-size: var(--font-size-regular);
+      font-family: var(--ff-heading);
+      color: var(--text-main);
+      font-weight: 400;
+      text-align: center;
+    }
+  }
   .theme-toggle {
     --icon-fill: var(--text-main-muted);
     --icon-fill-hover: var(--background-accent-main);

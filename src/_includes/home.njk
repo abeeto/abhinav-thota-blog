@@ -11,7 +11,23 @@ layout: base.njk
     </div>
   </section>
 </main>
-
+{% if countries %}
+<section class="section" data-padding="wide">
+  <div class="country-cards-section">
+    <div class="country-cards-wrapper">
+      {% for country in countries.items %}
+      <div class="country-card wrapper flow" data-width="wide">
+        <img src="{{ country.image }}" alt="map" loading="lazy">
+        {% for place in country.places %}
+        <span class="country-card-text" data-country-name="{{ place.name }}">{{ place.name }}</span>
+        {% endfor %}
+        <span class="country-card-context">{{ country.context }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
 {# Features/Highlights section #}
 {% if projects %}
 <section class="section">
