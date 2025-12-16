@@ -45,5 +45,4 @@ countries:
       places:
         - name: 🇬🇧 United Kingdom
 showRecentPosts: true
-isHomePage: true
 ---

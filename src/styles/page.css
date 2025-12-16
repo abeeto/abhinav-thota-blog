@@ -216,7 +216,6 @@
 
 
     @media (width < 855px) {
-      flex-direction: column;
       ul[data-buttons="true"] {
         gap: 0.5rem;
         a {
@@ -232,7 +231,7 @@
     gap: 1rem;
   }
 
-  ul[data-buttons="true"] a, .navigation-menu-home {
+  ul[data-buttons="true"] a {
     text-decoration: none;
     color: var(--text-main-muted);
     font-family: var(--ff-heading);
@@ -241,14 +240,6 @@
     &:hover {
       cursor: pointer;
       color: var(--background-accent-main);
-    }
-  }
-  .navigation-menu-home  {
-    font-size: var(--font-size-md);
-    font-weight: 200;
-    align-self: center;
-    @media (width < 855px) {
-      align-self: auto;
     }
   }
 
@@ -520,6 +511,11 @@
     -webkit-tap-highlight-color: transparent;
     outline-offset: 5px;
     align-self: center;
+
+    @media (width < 855px) {
+      inline-size: 1.5rem;
+      block-size: 1.5rem;
+    }
   }
 
   .theme-toggle > svg {
