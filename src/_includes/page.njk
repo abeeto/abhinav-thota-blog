@@ -2,5 +2,35 @@
 layout: base.njk
 ---
 
-<h1>{{ title }}</h1>
-{{ content | safe }}
+<section class="wrapper section" data-padding="wide">
+    <h1>{{ title }}</h1>
+    {{ content | safe }}
+</section>
+
+{% if comments %}
+    <section class="section comment-section" data-post-slug="{{ slug }}" x-data="commentSection()" x-init="init()" data-padding="wide">
+        <div class="wrapper flow" data-flow-margin="compact">
+            <h2>Comments</h2>
+            <form @submit.prevent="postComment()">
+                <input x-model="newComment.userName" placeholder="Your name" required>
+                <textarea x-model="newComment.content" placeholder="Your comment" required></textarea>
+                <button type="submit" data-button-type="accent">Post</button>
+            </form>
+        </div>
+        <div class = "wrapper flow">
+            <div x-show="loading">Loading comments...</div>
+            <template x-for="comment in comments" :key="comment.commentId">
+                <div class="comment">
+                    <div class="comment-meta">
+                        <strong x-text="comment.userName"></strong>
+                        <strong x-text="formatDate(comment.createdAt)"></strong>
+                    </div>
+                    <div class="comment-content">
+                        <p x-text="comment.content"></p>
+                    </div>
+                    <button type="button" data-button-type="muted" @click="deleteComment(comment.commentId)">Delete</button>
+                </div>
+            </template>
+        </div>
+    </section>
+{% endif %}

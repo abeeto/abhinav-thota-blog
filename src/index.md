@@ -1,6 +1,11 @@
 ---
 title: Abhinav Thota
 layout: "home.njk"
+scripts:
+  - src: "https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"
+  - src: "https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"
+  - src: "/lazyloadGif.js"
+  - src: "/countryCardsAnimation.js"
 hero:
   title: Hello 👋
   description: > 
