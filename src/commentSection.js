@@ -11,31 +11,7 @@ function commentSection() {
     return {
         comments: [],
         loading: true,
-        newComment: "",
-        error: "",
-
-        idToken: null,
-        userInfo: null,
-
-        get isAuthenticated() {
-            return cognitoAuth.isAuthenticated();
-        },
-
-        get userName() {
-            return this.userInfo?.name || this.userInfo?.email || 'Anonymous';
-        },
-
-        get userId() {
-            return this.userInfo?.sub || null;
-        },
-
-        get canPost() {
-            return this.isAuthenticated &&
-                this.newComment.trim().length > 0 &&
-                this.newComment.trim().length <= 1000;
-        },
-
-
+        newComment: { userName: "", content: ""},
 
         formatDate(timestamp) {
             const date = new Date(timestamp * 1000);
@@ -64,13 +40,6 @@ function commentSection() {
         },
 
         async init() {
-            await cognitoAuth.handleCallback();
-
-            if (this.isAuthenticated) {
-                this.idToken = cognitoAuth.getIdToken();
-                this.userInfo = cognitoAuth.getUserInfo();
-            }
-
             try {
                 const response = await fetch(`${endpointUrl}/comments`);
                 const data = await response.json();
@@ -81,59 +50,30 @@ function commentSection() {
                 this.loading = false;
             }
         },
-
-        signIn() {
-            cognitoAuth.signIn();
-        },
-
-        signOut() {
-            cognitoAuth.signOut();
-        },
         async postComment() {
-            if (!this.isAuthenticated) {
-                this.error = "Please sign in to post a comment";
-                return;
-            }
-
             try {
-                const comment = {
-                    userName: this.userName,
-                    content: this.newComment
-                };
-
+                console.log(JSON.stringify(this.newComment));
                 await fetch(`${endpointUrl}/comments`, {
                     method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": `Bearer ${this.idToken}`
-                    },
-                    body: JSON.stringify(comment)
+                    headers: {"Content-Type" : "application/json"},
+                    body: JSON.stringify(this.newComment)
                 });
-
-                this.newComment = "";
-                this.error = "";
-                await this.init();
             } catch (error) {
                 console.error("failed to post comment: ", error);
-                this.error = "Failed to post comment. Please try again.";
-            }
-        },
-        async deleteComment(commentId) {
-            if (!this.isAuthenticated) {
-                return;
             }
 
+            await this.init();
+            this.newComment = { userName: "", content: ""}
+        },
+        async deleteComment(commentId) {
             try {
                 await fetch(`${endpointUrl}/comments/${commentId}`, {
-                    method: "DELETE",
-                    headers: {
-                        "Authorization": `Bearer ${this.idToken}`
-                    }
-                });
-                await this.init();
+                    method: "DELETE"
+                })
             } catch (error) {
-                console.error("failed to delete:", error);
+                console.error("failed to delete");
             }
+            await this.init();
         }
     }
 }

@@ -11,12 +11,13 @@ layout: base.njk
     <section class="section comment-section" data-post-slug="{{ slug }}" x-data="commentSection()" x-init="init()" data-padding="wide">
         <div class="wrapper flow" data-flow-margin="compact">
             <h2>Comments</h2>
-            <form @submit.prevent="isAuthenticated ? postComment() : signIn()">
-                <textarea x-model="newComment" placeholder="Write your comment..." :disabled="!isAuthenticated" maxlength="1000"></textarea>
-                <button type="submit" data-button-type="accent" x-text="isAuthenticated ? 'Post Comment' : 'Sign in'"></button>
+            <form @submit.prevent="postComment()">
+                <input x-model="newComment.userName" placeholder="Your name" required>
+                <textarea x-model="newComment.content" placeholder="Your comment" required></textarea>
+                <button type="submit" data-button-type="accent">Post</button>
             </form>
         </div>
-        <div class="wrapper flow">
+        <div class = "wrapper flow">
             <div x-show="loading">Loading comments...</div>
             <template x-for="comment in comments" :key="comment.commentId">
                 <div class="comment">
@@ -27,7 +28,7 @@ layout: base.njk
                     <div class="comment-content">
                         <p x-text="comment.content"></p>
                     </div>
-                    <button x-show="isAuthenticated && comment.userId === userId" type="button" data-button-type="muted" @click="deleteComment(comment.commentId)">Delete</button>
+                    <button type="button" data-button-type="muted" @click="deleteComment(comment.commentId)">Delete</button>
                 </div>
             </template>
         </div>
