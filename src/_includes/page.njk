@@ -8,14 +8,19 @@ layout: base.njk
 </section>
 
 {% if comments %}
-    <section class="section comment-section" data-post-slug="{{ slug }}" x-data="commentSection()" x-init="init()" data-padding="wide">
+    <section class="section comment-section" data-post-slug="{{ slug }}" x-data="commentSection" x-init="init()" data-padding="wide">
         <div class="wrapper flow" data-flow-margin="compact">
-            <h2>Comments</h2>
-            <form @submit.prevent="postComment()">
-                <input x-model="newComment.userName" placeholder="Your name" required>
-                <textarea x-model="newComment.content" placeholder="Your comment" required></textarea>
-                <button type="submit" data-button-type="accent">Post</button>
+            <h2>Leave a comment</h2>        
+            <!-- Comment form - always visible but disabled when not authenticated -->
+            <form @submit.prevent="isAuthenticated ? postComment() : handleSignIn()">
+                <textarea class="comment-textarea" x-model="content" placeholder="Your comment" required x-bind:disabled="!isAuthenticated"></textarea>
+                <button type="submit" data-button-type="accent" x-text="isAuthenticated ? 'Post Comment' : 'Sign In to Comment'"></button>
             </form>
+            <!-- Auth status display -->
+            <div x-show="isAuthenticated" style="display: none;">
+                <p>Signed in as <strong x-text="currentUser?.profile?.name || currentUser?.profile?.email"></strong></p>
+                <button type="button" @click="handleSignOut()" data-button-type="muted">Sign Out</button>
+            </div>
         </div>
         <div class = "wrapper flow">
             <div x-show="loading">Loading comments...</div>

@@ -47,8 +47,12 @@
         </div>
     </main>
     <script src="/colorSwitch.js"></script>
+    <script type="module">
+        import { initAuth } from "./oidc-client-ts.js";
+        await initAuth();
+    </script>
     {% for script in scripts %}
-    <script {% if script.defer %}defer {% endif %}src="{{ script.src }}"></script>
+    <script {% if script.defer %}defer {% endif %}{% if script.type %}type="{{ script.type }}" {% endif %}src="{{ script.src }}"></script>
     {% endfor %}
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </body>

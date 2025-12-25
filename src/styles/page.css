@@ -613,6 +613,7 @@
       font-family: "Roboto Slab", serif;
     }
   }
+  
   button[data-button-type="accent"]:hover {
     background-color: var(--background-accent-dark);
   }
@@ -629,9 +630,7 @@
     text-decoration: underline;
   }
 
-  button[data-button-type="muted"]:hover {
-    color: var(--text-brand);
-  }
+
   button[data-button-type="accent"] {
     padding: 0.5rem 0.75rem;
     background-color: var(--background-accent-main);
@@ -641,6 +640,10 @@
     cursor: pointer;
     font-family: var(--ff-heading);
     font-size: var(--font-size-regular);
+  }
+  
+  button[data-button-type="muted"]:hover {
+    color: var(--text-brand);
   }
 
 
@@ -768,24 +771,23 @@
     }
   }
 
-  .comment-section input,
-  .comment-section textarea {
+  .comment-textarea {
     padding: 0.75rem;
     border: 1px solid var(--background-dark);
     border-radius: var(--border-radius-1);
     background-color: var(--background-light);
     color: var(--text-main);
+    min-height: 100px;
+    resize: vertical;
   }
 
-  .comment-section input:focus,
-  .comment-section textarea:focus {
+  .comment-textarea:focus {
     outline: 2px solid var(--background-accent-main);
     outline-offset: 2px;
   }
 
-  .comment-section textarea {
-    min-height: 100px;
-    resize: vertical;
+  .comment-textarea:disabled {
+    cursor: not-allowed;
   }
 
 
