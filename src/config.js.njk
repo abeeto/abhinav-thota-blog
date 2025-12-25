@@ -1,0 +1,17 @@
+---
+permalink: /config.js
+---
+// Auto-generated configuration file
+// This file is generated at build time from environment variables
+
+export const config = {
+    cognito: {
+        authority: "https://cognito-idp.{{ env.cognitoRegion }}.amazonaws.com/{{ env.cognitoUserPoolId }}",
+        clientId: "{{ env.cognitoClientId }}",
+        domain: "https://{{ env.cognitoDomain }}.auth.{{ env.cognitoRegion }}.amazoncognito.com",
+        region: "{{ env.cognitoRegion }}"
+    },
+    api: {
+        endpoint: "{{ env.apiEndpoint }}"
+    }
+};
