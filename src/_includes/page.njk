@@ -12,9 +12,10 @@ layout: base.njk
         <div class="wrapper flow" data-flow-margin="compact">
             <h2>Leave a comment</h2>        
             <!-- Comment form - always visible but disabled when not authenticated -->
-            <form @submit.prevent="isAuthenticated ? postComment() : handleSignIn()">
-                <textarea class="comment-textarea" x-model="content" placeholder="Your comment" required x-bind:disabled="!isAuthenticated"></textarea>
-                <button type="submit" data-button-type="accent" x-text="isAuthenticated ? 'Post Comment' : 'Sign In to Comment'"></button>
+            <form @submit.prevent="postComment">
+                <textarea class="comment-textarea" x-model="content" placeholder="Your comment" required x-bind:disabled="!isAuthenticated || posting"></textarea>
+                <button class="comment-form-btn" x-show="!isAuthenticated" type="button" @click="handleSignIn()" data-button-type="accent" x-bind:disabled="signingIn" x-text="signingIn ? 'Signing In...' : 'Sign In to Comment'"></button>
+                <button class="comment-form-btn" x-show="isAuthenticated" type="submit" data-button-type="accent" x-bind:disabled="posting" x-text="posting ? 'Posting...' : 'Post Comment'"></button>
             </form>
             <!-- Auth status display -->
             <div x-show="isAuthenticated" style="display: none;">
@@ -23,7 +24,7 @@ layout: base.njk
             </div>
         </div>
         <div class = "wrapper flow">
-            <div x-show="loading">Loading comments...</div>
+            <div x-show="loadingComments">Loading comments...</div>
             <template x-for="comment in comments" :key="comment.commentId">
                 <div class="comment">
                     <div class="comment-meta">
@@ -33,7 +34,7 @@ layout: base.njk
                     <div class="comment-content">
                         <p x-text="comment.content"></p>
                     </div>
-                    <button type="button" data-button-type="muted" @click="deleteComment(comment.commentId)">Delete</button>
+                    <button type="button" data-button-type="muted" x-show="isAuthenticated && comment.userId === currentUser?.profile?.sub"  @click="deleteComment(comment.commentId)" x-bind:disabled="deletingId === comment.commentId" x-text="deletingId === comment.commentId ? 'Deleting...' : 'Delete'"></button>
                 </div>
             </template>
         </div>
