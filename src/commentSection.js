@@ -13,7 +13,10 @@ document.addEventListener('alpine:init', () => {
 
         return {
             comments: [],
-            loading: true,
+            loadingComments: true,
+            signingIn: false,
+            posting: false,
+            deletingId: null,
             isAuthenticated: false,
             currentUser: null,
             userName: null,
@@ -50,6 +53,8 @@ document.addEventListener('alpine:init', () => {
 
                 if (this.isAuthenticated) {
                     this.currentUser = await getUser();
+                    console.log('Current user:', this.currentUser);
+                    console.log('User sub:', this.currentUser?.profile?.sub);
                     if (this.currentUser?.profile?.name) {
                         this.userName = this.currentUser.profile.name;
                     } else if (this.currentUser?.profile?.email) {
@@ -61,14 +66,16 @@ document.addEventListener('alpine:init', () => {
                     const response = await fetch(`${endpointUrl}/comments`);
                     const data = await response.json();
                     this.comments = data;
-                    this.loading = false;
+                    console.log('Comments:', this.comments);
+                    this.loadingComments = false;
                 } catch (error) {
                     console.error('Failed to load comments:', error);
-                    this.loading = false;
+                    this.loadingComments = false;
                 }
             },
 
             async handleSignIn() {
+                this.signingIn = true;
                 await signIn();
             },
 
@@ -77,6 +84,7 @@ document.addEventListener('alpine:init', () => {
             },
 
             async postComment() {
+                this.posting = true;
                 try {
                     const response = await fetch(`${endpointUrl}/comments`, {
                         method: "POST",
@@ -96,10 +104,13 @@ document.addEventListener('alpine:init', () => {
                     this.content = "";
                 } catch (error) {
                     console.error("Failed to post comment:", error);
+                } finally {
+                    this.posting = false;
                 }
             },
 
             async deleteComment(commentId) {
+                this.deletingId = commentId;
                 try {
                     await fetch(`${endpointUrl}/comments/${commentId}`, {
                         method: "DELETE",
@@ -108,6 +119,8 @@ document.addEventListener('alpine:init', () => {
                     await this.init();
                 } catch (error) {
                     console.error("Failed to delete comment:", error);
+                } finally {
+                    this.deletingId = null;
                 }
             }
         }

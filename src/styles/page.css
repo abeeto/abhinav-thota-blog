@@ -614,10 +614,7 @@
     }
   }
   
-  button[data-button-type="accent"]:hover {
-    background-color: var(--background-accent-dark);
-  }
-
+  
   button[data-button-type="muted"] {
     padding: 0.25rem 0rem;
     background-color: transparent;
@@ -629,8 +626,11 @@
     font-size: var(--font-size-sm);
     text-decoration: underline;
   }
-
-
+  
+  button[data-button-type="muted"]:hover {
+    color: var(--text-brand);
+  }
+  
   button[data-button-type="accent"] {
     padding: 0.5rem 0.75rem;
     background-color: var(--background-accent-main);
@@ -641,10 +641,10 @@
     font-family: var(--ff-heading);
     font-size: var(--font-size-regular);
   }
-  
-  button[data-button-type="muted"]:hover {
-    color: var(--text-brand);
+  button[data-button-type="accent"]:hover {
+    background-color: var(--background-accent-dark);
   }
+  
 
 
   .dynamic-content-card {
@@ -790,6 +790,13 @@
     cursor: not-allowed;
   }
 
+  .comment-form-btn {
+    min-width: 180px;
+    &:disabled {
+      cursor: progress;
+      background-color: var(--background-accent-dark);
+    }
+  }
 
   .comment-section [x-show="loading"] {
     padding: 2rem;
