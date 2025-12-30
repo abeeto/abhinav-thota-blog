@@ -1,0 +1,31 @@
+---
+layout: base.njk
+title: Blog
+---
+
+<section class="wrapper section" data-padding="wide">
+    <h1>Blog</h1>
+    <div>
+        {% if collections['blog-posts'] %}
+            {% for post in collections['blog-posts'] | reverse %}
+                <article class="blog-post-item">
+                    <div class="card-content-head">
+                        <h2>
+                            <a href="{{ post.url }}">{{ post.data.title }}</a>
+                        </h2>
+                        {% if post.date %}
+                            <time datetime="{{ post.date.toISOString() }}">
+                                {{ post.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}
+                            </time>
+                        {% endif %}
+                    </div>
+                    {% if post.data.description %}
+                        <p>{{ post.data.description }}</p>
+                    {% endif %}
+                </article>
+            {% endfor %}
+            {% else %}
+                <p>No blog posts yet.</p>
+            {% endif %}
+    </div>
+</section>
