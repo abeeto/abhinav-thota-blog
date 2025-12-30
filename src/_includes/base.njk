@@ -16,9 +16,9 @@
     <header>
         <nav class="navigation-menu wrapper">
             <ul role="list" data-buttons="true">
-                <li><a href="/projects">projects</a></li>
-                <li><a href="/blog">blog</a></li>
-                <li><a href="/about">about</a></li>
+                <li><a href="/" {% if page.url == "/" %}aria-current="page"{% endif %}>home</a></li>
+                <li><a href="/blog" {% if page.url.startsWith('/blog') %}aria-current="page"{% endif %}>blog</a></li>
+                <li><a href="/projects" {% if page.url.startsWith('/projects') %}aria-current="page"{% endif %}>projects</a></li>
             </ul>
             <button class="theme-toggle" id="theme-toggle" title="Toggles light & dark" aria-label="auto" aria-live="polite">
                 <svg class="sun-and-moon" aria-hidden="true" viewBox="0 0 24 24">
